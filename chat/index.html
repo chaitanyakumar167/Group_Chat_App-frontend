@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 p-0 m-0 overflow-y-scroll border border-dark-subtle">
+                <header class="bg-dark-subtle">
+                    <div class="h3 ">chat</div>
+                    <button type="button" class="btn float btn-outline-dark" id="groupbtn" data-bs-toggle="modal" data-bs-target="#groupModal">+</button>
+                </header>
+                <div id="grouplist"></div>
+
+            </div>
+            <div class="col-sm-9 p-0 m-0">
+                <div class="container-fluid chatbox overflow-y-scroll border border-dark-subtle">
+                    <header class="bg-dark-subtle">
+                    </header>
+                    <div class="list-group" id="messagelist">
+                    </div>
+                </div>
+                <div id="inputdiv" class="hidden p-0 m-0">
+                    <div class="col-sm-10 ">
+                        <input type="text" id="msginput" class="form-control border border-black">
+                        <input type="hidden" id="groupname" >
+                      </div>
+                      <div class="col-sm-2">
+                        <button id="send" class="btn w-50 btn-outline-primary">Send</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="groupModalLabel">Create Group</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" name="groupname" placeholder="Enter Group Name" id="groupNameInput">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="createGroup">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addGroupMemberModal" tabindex="-1" aria-labelledby="addGroupMemberModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addGroupMemberModalLabel">Create Group</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input type="email" class="form-control" name="groupmemberemail" placeholder="Enter Email" id="groupMemberEmailInput">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="addGroupMember">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+
+</body>
+</html>

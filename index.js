@@ -68,7 +68,8 @@ btnLogin.addEventListener('click',async(e)=>{
         const res = await axios.post(`${URL}/user/login`,userObj)
         if(res.status===200){
             localStorage.setItem('token',res.data.token)
-            window.location.href='../chat/index.html'
+            localStorage.setItem('username',res.data.username)
+            window.location.href='./chat/index.html'
         }
     } catch (error) {
         if(error.response.status === 404 || error.response.status === 401){

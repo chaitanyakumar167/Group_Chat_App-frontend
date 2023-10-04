@@ -1,0 +1,11 @@
+.chatbox{
+    height: 90vh;
+}
+header{
+    height: 3rem;
+    display: flex;
+    gap: 6rem;
+}
+.hidden{
+    display: none;
+}
