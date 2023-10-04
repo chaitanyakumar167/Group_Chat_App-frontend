@@ -101,13 +101,17 @@ async function showgroups(obj){
         inputdiv.classList.remove('hidden')
         groupNameInput.value=groupname.textContent
         const groupnameparams=groupname.textContent
+
+        setInterval(async()=>{
+
+            const response=await axios.get(`${URL}/chat/getallmessages/${groupnameparams}`,{headers:{Authorization:token}})
+            messageList.innerHTML=''
+            const messages = response.data.messages
+            for(let i=0; i<messages.length; i++){
+              showMessages(messages[i])
+            }
+        },1000)
   
-        const response=await axios.get(`${URL}/chat/getallmessages/${groupnameparams}`,{headers:{Authorization:token}})
-        messageList.innerHTML=''
-        const messages = response.data.messages
-        for(let i=0; i<messages.length; i++){
-          showMessages(messages[i])
-        }
     } catch (error) {
         console.log(error)
     }
